@@ -58,7 +58,7 @@ Adafruit_NeoPixel led(1, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 Die Bibliothek WiFiManager wurde verwendet, um automatisch eine Verbindung zu einem bekannten WLAN herzustellen oder bei Fehlschlag ein Konfigurationsportal zu öffnen (Access Point 'WetterstationAP'). Das Endgerät muss sich im selben Netzwerk befinden, damit das Webinterface erreichbar ist.
 
-![Abbildung 1: WetterstationAP; WifiManager](assets/image.png)
+![Abbildung 1: WetterstationAP; WifiManager](assets/WtterstationAP.png)
 
 **Abbildung 1: WetterstationAP; WifiManager**
 
