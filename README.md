@@ -58,6 +58,8 @@ Adafruit_NeoPixel led(1, LED_PIN, NEO_GRB + NEO_KHZ800);
 
 Die Bibliothek WiFiManager wurde verwendet, um automatisch eine Verbindung zu einem bekannten WLAN herzustellen oder bei Fehlschlag ein Konfigurationsportal zu öffnen (Access Point 'WetterstationAP'). Das Endgerät muss sich im selben Netzwerk befinden, damit das Webinterface erreichbar ist.
 
+![Abbildung 1: WetterstationAP; WifiManager](assets/image.png)
+
 **Abbildung 1: WetterstationAP; WifiManager**
 
 ```cpp
@@ -71,8 +73,16 @@ if (wifiManager.autoConnect("WetterstationAP")) {
 
 Alle 10 Sekunden werden Temperatur, Luftfeuchtigkeit und Gaswert gemessen. Die Werte werden in Arrays gespeichert, wobei jeweils nur die letzten fünf Werte behalten werden. Zusätzlich werden sie als JSON an ein PHP-Skript (insert.php) gesendet, dass die Werte in eine MySQL-Datenbank schreibt. Die läuft lokal über MariaDB (phpmyadmin) und mit den Admin login-daten (root, example) kann man sich dort anmelden. Die Datenbank wird generell über Docker betrieben.
 
+![Abbildung 2: Apache-Server; XAMPP](assets/Apache.png)
+
 **Abbildung 2: Apache-Server; XAMPP**
+
+![Abbildung 3: MariaDB über Docker](assets/MariaDB.png)
+
 **Abbildung 3: MariaDB über Docker**
+
+![Abbildung 4: phpMyAdmin; Login: root, example](assets/phpMyAdmin.png)
+
 **Abbildung 4: phpMyAdmin; Login: root, example**
 
 ```cpp
@@ -99,6 +109,8 @@ http.end();
 ### 4. Visualisierung im Webinterface
 
 Die letzten fünf Messwerte werden im Webinterface grafisch in einem Balkendiagramm dargestellt. Zusätzlich gibt es Links zur Datenbank (daten.php) und zur LED-Steuerung.
+
+![Abbildung 5: Balkendiagramm; Webinterface](assets/barchart.png)
 
 **Abbildung 5: Balkendiagramm; Webinterface**
 
@@ -137,6 +149,10 @@ Die interne RGB-LED leuchtet abhängig vom aktuellen Zustand:
 * Temperatur > 30 °C → Orange
 * Normalbetrieb → Blau
   Die LED kann über das Webinterface ein- und ausgeschaltet werden.
+
+![Abbildung 6: LED ein/aus; Webinterface](assets/Webinterface.png)
+
+**Abbildung 6: LED ein/aus; Webinterface**
 
 ```cpp
 void updateLED(float t) {
